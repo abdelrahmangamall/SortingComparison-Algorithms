@@ -76,7 +76,7 @@ private static void InsertionSortAlgorithm(float[] nums, int l, int r)
         nums[j + 1] = key;
     }
 }
-
+```
 ## Performance Benchmarks
 
 ### Hard Test Case Results
