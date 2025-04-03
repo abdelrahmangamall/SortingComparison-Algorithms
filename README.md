@@ -1,4 +1,28 @@
 # Sorting Algorithm Hybrid: QuickSort with Insertion Sort Optimization
+## Performance Benchmarks
+
+### Hard Test Case Results
+| Test Case Type | Array Size (N) | Threshold | Hybrid Time (ms) | QuickSort Time (ms) | Speedup |
+|----------------|----------------|-----------|------------------|---------------------|---------|
+| **Sorted**     | 40,555,085     | 33        | 3,149            | 4,238               | 1.35x   |
+| **Random**     | 5,810,461      | 43        | 1,352            | 1,720               | 1.27x   |
+
+### Key Observations:
+1. **Sorted Data Performance**  
+   - Hybrid algorithm showed **35% faster execution** (3,149ms vs 4,238ms)  
+   - Benefits from Insertion Sort's O(N) best-case on nearly-sorted data  
+
+2. **Random Data Performance**  
+   - Consistent **27% improvement** even with random distribution  
+   - Optimal threshold (43) minimized recursive overhead  
+
+3. **Threshold Impact**  
+   - Smaller thresholds (≤30) are ideal for pre-sorted data  
+   - Larger thresholds (40-50) are better for random/unordered arrays  
+
+4. **Scalability**  
+   - Maintains O(N log N) average case with 40M+ elements  
+   - 3x faster than worst-case O(N²) scenarios  
 
 ## Overview
 This solution implements an optimized hybrid sorting algorithm that combines QuickSort's efficient partitioning with Insertion Sort's performance on small subarrays. The implementation demonstrates significant speed improvements over standard QuickSort, particularly for large datasets.
@@ -77,27 +101,3 @@ private static void InsertionSortAlgorithm(float[] nums, int l, int r)
     }
 }
 ```
-## Performance Benchmarks
-
-### Hard Test Case Results
-| Test Case Type | Array Size (N) | Threshold | Hybrid Time (ms) | QuickSort Time (ms) | Speedup |
-|----------------|----------------|-----------|------------------|---------------------|---------|
-| **Sorted**     | 40,555,085     | 33        | 3,149            | 4,238               | 1.35x   |
-| **Random**     | 5,810,461      | 43        | 1,352            | 1,720               | 1.27x   |
-
-### Key Observations:
-1. **Sorted Data Performance**  
-   - Hybrid algorithm showed **35% faster execution** (3,149ms vs 4,238ms)  
-   - Benefits from Insertion Sort's O(N) best-case on nearly-sorted data  
-
-2. **Random Data Performance**  
-   - Consistent **27% improvement** even with random distribution  
-   - Optimal threshold (43) minimized recursive overhead  
-
-3. **Threshold Impact**  
-   - Smaller thresholds (≤30) ideal for pre-sorted data  
-   - Larger thresholds (40-50) better for random/unordered arrays  
-
-4. **Scalability**  
-   - Maintains O(N log N) average case with 40M+ elements  
-   - 3x faster than worst-case O(N²) scenarios  
